@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Quicksand:wght@400;500&family=Roboto&display=swap");
+
+:root {
+  --bg: #212121;
+  --side-clr: #111827;
+  --drk-clr: #030712;
+}
+
+body {
+  font-family: "Inter";
+  color: white;
+  background-color: var(--drk-clr);
+}
+.task-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 15vh;
+}
+
+.add-task {
+  background-color: var(--side-clr);
+  color: white;
+}
+#task-add {
+  border-radius: 15px;
+  border: solid white 1px;
+  background-color: var(--side-clr);
+  color: white;
+}
+
+#modal {
+  display: none;
+  width: 50vw;
+  height: 25vh;
+  color: black;
+  background-color: white;
+}

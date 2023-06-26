@@ -1,3 +1,8 @@
+import "./index.css";
+
+modalForm = document.querySelector("#task-add");
+modalForm.addEventListener("click", () => alert("click"));
+
 class Todos {
   constructor(title, description, dueDate, priority, notes, checklist) {
     this.title = title;
