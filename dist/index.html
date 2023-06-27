@@ -10,15 +10,33 @@
     <div class="task-container">
       <div class="add-task">
         <button id="task-add">Add Task</button>
-        <dialog id="modal">
+        <dialog class="modal" id="close">
           <form action="">
             <div class="entry">
               <label for="title">Task:</label>
-              <input type="text" />
+              <input id="title" type="text" />
             </div>
             <div class="entry">
-              <label for="description">Description</label>
-              <input type="text" />
+              <label for="description">Description:</label>
+              <input id="description" type="text" />
+            </div>
+            <div class="entry">
+              <label for="dueDate">Due Date:</label>
+              <input id="date" type="date" name="" id="" />
+            </div>
+            <div class="entry">
+              <label for="priority">Priority:</label>
+              <input id="priority" type="range" name="" id="" />
+            </div>
+            <div class="entry">
+              <label for="notes">Notes:</label>
+              <input id="notes" type="text" name="" id="" />
+            </div>
+            <div class="entry">
+              <button id="close-modal">Close</button>
+            </div>
+            <div class="entry">
+              <button type="button" id="submit">Submit</button>
             </div>
           </form>
         </dialog>
