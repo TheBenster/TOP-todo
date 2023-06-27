@@ -55,13 +55,16 @@ class Todos {
 let tasks = [];
 
 export default function addTaskToList() {
+  if (titleInput.length == 0) {
+    titleInput.textContent = "You cant do this";
+  }
   let title = titleInput.value;
   let description = descInput.value;
-  let dateInput = dueDate.value;
+  let dueDate = dateInput.value;
   let priority = priorityInput.value;
   let notes = notesInput.value;
-  let newTask = new Todos(title, description, dateInput, priority, notes);
+  let newTask = new Todos(title, description, dueDate, priority, notes);
   tasks.push(newTask);
-  console.log(tasks);
+  console.log(title);
   alert("test");
 }

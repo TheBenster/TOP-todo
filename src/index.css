@@ -29,6 +29,13 @@ body {
   background-color: var(--side-clr);
   color: white;
 }
+#task-add:hover {
+  color: var(--side-clr);
+  background-color: white;
+  border-color: var(--side-clr) 1px solid;
+  height: 20px;
+  cursor: pointer;
+}
 
 .modal {
   display: none;
@@ -64,4 +71,16 @@ input {
   background-color: var(--drk-clr);
   border: none;
   border-radius: 35px;
+}
+#submit {
+  margin-top: 10px;
+  height: 25px;
+  color: white;
+  background-color: var(#212121);
+  border: none;
+  border-radius: 35px;
+}
+#close-modal:hover,
+#submit:hover {
+  cursor: pointer;
 }
