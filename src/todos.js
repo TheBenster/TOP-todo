@@ -1,7 +1,9 @@
 import "./index.css";
-
-modalForm = document.querySelector("#task-add");
-modalForm.addEventListener("click", () => alert("click"));
+let titleInput = document.querySelector("#title");
+let descInput = document.querySelector("#description");
+let dateInput = document.querySelector("#date");
+let priorityInput = document.querySelector("#priority");
+let notesInput = document.querySelector("#notes");
 
 class Todos {
   constructor(title, description, dueDate, priority, notes, checklist) {
@@ -50,4 +52,16 @@ class Todos {
   }
 }
 
-function addTask() {}
+let tasks = [];
+
+export default function addTaskToList() {
+  let title = titleInput.value;
+  let description = descInput.value;
+  let dateInput = dueDate.value;
+  let priority = priorityInput.value;
+  let notes = notesInput.value;
+  let newTask = new Todos(title, description, dateInput, priority, notes);
+  tasks.push(newTask);
+  console.log(tasks);
+  alert("test");
+}

@@ -30,10 +30,38 @@ body {
   color: white;
 }
 
-#modal {
+.modal {
   display: none;
-  width: 50vw;
-  height: 25vh;
+  width: 25vw;
+  height: 50vh;
   color: black;
   background-color: white;
+  border-radius: 15px;
+}
+
+dialog[open] {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+input {
+  height: 25px;
+  border-radius: 35px;
+  background-color: #d0d0d0;
+  padding-left: 10px;
+  border: none;
+}
+.entry {
+  display: flex;
+  flex-direction: column;
+}
+#close-modal {
+  height: 25px;
+  margin-top: 10px;
+  color: white;
+  background-color: var(--drk-clr);
+  border: none;
+  border-radius: 35px;
 }
