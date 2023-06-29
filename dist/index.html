@@ -10,38 +10,41 @@
     <div class="task-container">
       <div class="add-task">
         <button id="task-add">Add Task</button>
-        <dialog class="modal" id="close">
-          <form action="">
-            <div class="entry">
-              <label for="title">Task:</label>
-              <input id="title" type="text" />
-            </div>
-            <div class="entry">
-              <label for="description">Description:</label>
-              <input id="description" type="text" />
-            </div>
-            <div class="entry">
-              <label for="dueDate">Due Date:</label>
-              <input id="date" type="date" name="" />
-            </div>
-            <div class="entry">
-              <label for="priority">Priority:</label>
-              <input id="priority" min="0" max="5" type="range" name="" />
-            </div>
-            <div class="entry">
-              <label for="notes">Notes:</label>
-              <input id="notes" type="text" name="" />
-            </div>
-            <div class="entry">
-              <button type="button" id="close-modal">Close</button>
-            </div>
-            <div class="entry">
-              <button type="submit" id="submit">Submit</button>
-            </div>
-          </form>
-        </dialog>
+        <hr class="line-break" />
       </div>
+
+      <dialog class="modal" id="close">
+        <form action="">
+          <div class="entry">
+            <label for="title">Task:</label>
+            <input id="title" type="text" />
+          </div>
+          <div class="entry">
+            <label for="description">Description:</label>
+            <input id="description" type="text" />
+          </div>
+          <div class="entry">
+            <label for="dueDate">Due Date:</label>
+            <input id="date" type="date" name="" />
+          </div>
+          <div class="entry">
+            <label for="priority">Priority:</label>
+            <input id="priority" min="0" max="5" type="range" name="" />
+          </div>
+          <div class="entry">
+            <label for="notes">Notes:</label>
+            <input id="notes" type="text" name="" />
+          </div>
+          <div class="entry">
+            <button type="button" id="close-modal">Close</button>
+          </div>
+          <div class="entry">
+            <button type="submit" id="submit">Submit</button>
+          </div>
+        </form>
+      </dialog>
     </div>
+    <div class="task-div"></div>
     <script src="main.js"></script>
   </body>
 </html>
