@@ -8,32 +8,33 @@
 
 body {
   font-family: "Inter";
-  color: white;
-  background-color: var(--drk-clr);
+  color: black;
+  background-color: white;
 }
 .task-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: start;
+  justify-content: start;
   width: 100vw;
   height: 15vh;
+  padding-left: 30%;
 }
 
 .add-task {
-  background-color: var(--side-clr);
-  color: white;
+  background-color: white;
+  color: black;
+  font-weight: 500;
 }
 #task-add {
   border-radius: 15px;
   border: solid white 1px;
-  background-color: var(--side-clr);
-  color: white;
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  font-size: 1.4rem;
 }
 #task-add:hover {
-  color: var(--side-clr);
-  background-color: white;
-  border-color: var(--side-clr) 1px solid;
-  height: 20px;
+  color: cyan;
   cursor: pointer;
 }
 
@@ -83,4 +84,38 @@ input {
 #close-modal:hover,
 #submit:hover {
   cursor: pointer;
+}
+
+.task {
+  width: 20vw;
+  height: 50vh;
+  background-color: ghostwhite;
+  color: black;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 25px;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.task-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.line-break {
+  border-top: solid 0.5px black;
+  width: 40vw;
+}
+.uiDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
 }

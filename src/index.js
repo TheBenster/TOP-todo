@@ -1,5 +1,6 @@
 import "./index.css";
 import addTaskToList from "./todos";
+import displayTask from "./todos";
 function App() {}
 let submit = document.querySelector("#submit");
 const closeBtn = document.querySelector("#close-modal");
