@@ -1,5 +1,5 @@
 import "./index.css";
-import addTaskToList from "./todos";
+import { addTaskToList } from "./todos";
 
 const taskBtn = document.querySelector("#task-add");
 const closeBtn = document.querySelector("#close-modal");
