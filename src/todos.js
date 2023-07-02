@@ -76,17 +76,11 @@ function clearInputFields() {
   typeInput.value = "";
 }
 
-// display actual tasks on doms
+// Display actual tasks on DOM
 function displayTasks() {
   taskList.innerHTML = "";
 
-  const selectedType = document.querySelector(".selected-type");
-  const filterType = selectedType ? selectedType.dataset.type : null;
-  const filteredTasks = filterType
-    ? tasks.filter((task) => task.type === filterType)
-    : tasks;
-
-  filteredTasks.forEach((task, index) => {
+  tasks.forEach((task, index) => {
     const taskDiv = document.createElement("div");
     taskDiv.classList.add("task");
     if (task.completed) {
@@ -137,28 +131,23 @@ function displayTasks() {
   });
 
   const sideBar = document.querySelector("#task-types");
-  sideBar.innerHTML = ""; // clear the sidebar before adding types
+  sideBar.innerHTML = ""; // Clear the sidebar before adding types
 
-  tasks.forEach((task) => {
-    const type = task.type;
-    if (type !== "") {
-      const typeItem = document.createElement("li");
-      typeItem.className = "task-type";
-      typeItem.textContent = type;
-      let previousType = type;
-      sideBar.appendChild(typeItem);
-      if (previousType === typeItem) {
-        sideBar.removeChild(typeItem);
+  const taskTypes = new Set(tasks.map((task) => task.type));
+  taskTypes.forEach((type) => {
+    const typeItem = document.createElement("li");
+    typeItem.className = "task-type";
+    typeItem.textContent = type;
+
+    typeItem.addEventListener("click", () => {
+      const selectedType = document.querySelector(".selected-type");
+      if (selectedType) {
+        selectedType.classList.remove("selected-type");
       }
+      typeItem.classList.add("selected-type");
+      displayTasks();
+    });
 
-      typeItem.addEventListener("click", () => {
-        const selectedType = document.querySelector(".selected-type");
-        if (selectedType) {
-          selectedType.classList.remove("selected-type");
-        }
-        typeItem.classList.add("selected-type");
-        displayTasks();
-      });
-    }
+    sideBar.appendChild(typeItem);
   });
 }

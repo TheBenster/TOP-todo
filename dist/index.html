@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Task Manager</title>
     <link rel="stylesheet" href="../src/index.css" />
   </head>
   <body>
@@ -17,7 +17,7 @@
         <form action="">
           <div class="entry">
             <label for="title">Task:</label>
-            <input id="title" type="text" />
+            <input required id="title" type="text" />
           </div>
           <div class="entry">
             <label for="description">Description:</label>
@@ -30,6 +30,15 @@
           <div class="entry">
             <label for="priority">Priority:</label>
             <input id="priority" min="0" max="5" type="range" name="" />
+          </div>
+          <div class="entry">
+            <label for="type">Type:</label>
+            <select id="type">
+              <option value="Work">Work</option>
+              <option value="School">School</option>
+              <option value="Personal">Personal</option>
+              <option value="Chores">Chores</option>
+            </select>
           </div>
           <div class="entry">
             <label for="notes">Notes:</label>
@@ -45,6 +54,10 @@
       </dialog>
     </div>
     <div class="task-div"></div>
+    <div class="side-section">
+      <h2>Task Types</h2>
+      <ul id="task-types"></ul>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
