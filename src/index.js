@@ -1,27 +1,24 @@
 import "./index.css";
-import addTaskToList from "./todos";
-import displayTask from "./todos";
-function App() {}
-let submit = document.querySelector("#submit");
+import { addTaskToList } from "./todos";
+
+const taskBtn = document.querySelector("#task-add");
 const closeBtn = document.querySelector("#close-modal");
 const modal = document.querySelector(".modal");
-let taskBtn = document.querySelector("#task-add");
+const submitBtn = document.querySelector("#submit");
 
 function openModal() {
   modal.setAttribute("open", "true");
 }
+
 function closeModal() {
   modal.removeAttribute("open");
 }
 
 taskBtn.addEventListener("click", openModal);
+closeBtn.addEventListener("click", closeModal);
 
-closeBtn.addEventListener("click", () => {
-  modal.removeAttribute("open");
-});
-
-submit.addEventListener("click", (event) => {
+submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
   addTaskToList();
-  modal.removeAttribute("open");
+  closeModal();
 });
