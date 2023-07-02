@@ -87,15 +87,14 @@ input {
 }
 
 .task {
-  width: 20vw;
-  height: 50vh;
+  width: 75vw;
+  height: 10vh;
   background-color: ghostwhite;
   color: black;
   border: 1px solid;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  flex-direction: column;
   border-radius: 25px;
   text-align: center;
   flex-wrap: wrap;
@@ -104,9 +103,10 @@ input {
 
 .task-div {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: end;
+  justify-content: end;
   flex-direction: column;
+  padding-right: 100px;
   gap: 25px;
 }
 
@@ -115,7 +115,31 @@ input {
   width: 40vw;
 }
 .uiDiv {
+  height: 20px;
+  width: 20px;
   display: flex;
   justify-content: space-between;
   align-items: space-between;
+}
+
+.task-line {
+  border-top: solid 0.2px gray;
+}
+.side-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background-color: var(--side-clr);
+  color: white;
+  padding: 20px;
+}
+
+.side-section h2 {
+  margin-bottom: 10px;
+}
+
+.task-type {
+  list-style: none;
 }
