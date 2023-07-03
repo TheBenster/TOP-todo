@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Manager</title>
@@ -32,15 +36,6 @@
             <input id="priority" min="0" max="5" type="range" name="" />
           </div>
           <div class="entry">
-            <label for="type">Type:</label>
-            <select id="type">
-              <option value="Work">Work</option>
-              <option value="School">School</option>
-              <option value="Personal">Personal</option>
-              <option value="Chores">Chores</option>
-            </select>
-          </div>
-          <div class="entry">
             <label for="notes">Notes:</label>
             <input id="notes" type="text" name="" />
           </div>
@@ -55,8 +50,23 @@
     </div>
     <div class="task-div"></div>
     <div class="side-section">
-      <h2>Task Types</h2>
-      <ul id="task-types"></ul>
+      <h2>Projects</h2>
+      <ul id="task-projects">
+        <li>Example Project</li>
+      </ul>
+      <button id="new-proj">Add new project</button>
+      <dialog class="projModal" id="close">
+        <form action="">
+          <div class="entry">
+            <label for="project-name">Project Name</label>
+            <input id="project" type="text" />
+          </div>
+          <div class="close-n-cancel">
+            <button id="cancelProj">Close</button>
+            <button type="submit" id="submitProj">Submit</button>
+          </div>
+        </form>
+      </dialog>
     </div>
     <script src="main.js"></script>
   </body>
