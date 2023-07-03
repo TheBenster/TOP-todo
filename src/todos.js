@@ -1,7 +1,10 @@
 import "./index.css";
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let projects = JSON.parse(localStorage.getItem("projects")) || [];
 let taskList = document.querySelector(".task-div");
+let projectList = document.querySelector("#task-projects");
+const newProj = document.querySelector("#new-proj");
 
 class Todo {
   constructor(title, description, dueDate, priority, notes, checklist) {
@@ -44,6 +47,45 @@ export function deleteTask(index) {
   tasks.splice(index, 1);
   displayTasks();
   saveTasksToLocalStorage();
+}
+
+export function addProjectToList() {
+  let projectNameInput = document.querySelector("#project");
+  let projectName = projectNameInput.value;
+
+  if (projectName.length === 0) {
+    projectNameInput.value = "Please enter a project name";
+    return;
+  }
+
+  const newProject = document.createElement("li");
+  newProject.textContent = projectName;
+  projectList.appendChild(newProject);
+  newProj.className = "taskProj";
+  projects.push(projectName);
+  displayProjects();
+  saveProjectsToLocalStorage();
+}
+
+function displayProjects() {
+  projectList.innerHTML = "";
+
+  projects.forEach((project) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = project;
+
+    const trashIcon = document.createElement("i");
+    trashIcon.classList.add("fas", "fa-trash-alt");
+    trashIcon.addEventListener("click", () => delProj());
+
+    listItem.appendChild(trashIcon);
+    projectList.appendChild(listItem);
+  });
+}
+export function delProj() {
+  projectList.splice(index, 1);
+  displayProjects();
+  saveProjectsToLocalStorage();
 }
 
 function clearInputFields() {
@@ -111,4 +153,14 @@ function saveTasksToLocalStorage() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+export function saveProjectsToLocalStorage() {
+  localStorage.setItem("projects", JSON.stringify(projects));
+}
+
+export function loadProjectsFromLocalStorage() {
+  projects = JSON.parse(localStorage.getItem("projects")) || [];
+  displayProjects();
+}
+
 displayTasks();
+loadProjectsFromLocalStorage();
