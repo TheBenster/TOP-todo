@@ -55,6 +55,13 @@ dialog[open] {
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   gap: 20px;
 }
+dialog.projModal[open] {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
+}
 input {
   height: 25px;
   border-radius: 35px;
@@ -102,6 +109,7 @@ input {
   border-bottom-right-radius: 25px;
   gap: 10px;
   margin-left: 0px;
+  padding-left: 50px;
 }
 
 .task-div {
@@ -143,6 +151,40 @@ input {
   margin-bottom: 10px;
 }
 
-.task-type {
+#task-projects {
   list-style: none;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#new-proj {
+  border-radius: 20px;
+  background-color: #253556;
+  color: white;
+  border: none;
+  height: 40px;
+  width: 160px;
+}
+
+#new-proj:hover {
+  border: solid 1px #253556;
+  background-color: white;
+  color: #253556;
+  cursor: pointer;
+}
+
+#selected {
+  background-color: hsl(222, 31%, 30%);
+  color: white;
+}
+#task-projects > li {
+  display: flex;
+
+  gap: 20px;
+}
+
+.fas.fa-trash-alt:hover {
+  cursor: pointer;
 }
