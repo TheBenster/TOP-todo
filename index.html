@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="../src/index.css" />
+  </head>
+  <body>
+    <div class="task-container">
+      <div class="add-task">
+        <button id="task-add">Add Task</button>
+        <hr class="line-break" />
+      </div>
+
+      <dialog class="modal" id="close">
+        <form action="">
+          <div class="entry">
+            <label for="title">Task:</label>
+            <input required id="title" type="text" />
+          </div>
+          <div class="entry">
+            <label for="description">Description:</label>
+            <input id="description" type="text" />
+          </div>
+          <div class="entry">
+            <label for="dueDate">Due Date:</label>
+            <input id="date" type="date" name="" />
+          </div>
+          <div class="entry">
+            <label for="priority">Priority:</label>
+            <input id="priority" min="0" max="5" type="range" name="" />
+          </div>
+          <div class="entry">
+            <label for="notes">Notes:</label>
+            <input id="notes" type="text" name="" />
+          </div>
+          <div class="entry">
+            <button type="button" id="close-modal">Close</button>
+          </div>
+          <div class="entry">
+            <button type="submit" id="submit">Submit</button>
+          </div>
+        </form>
+      </dialog>
+    </div>
+    <div class="task-div"></div>
+    <div class="side-section">
+      <h2>Projects</h2>
+      <ul id="task-projects">
+        <li>Example Project</li>
+      </ul>
+      <button id="new-proj">Add new project</button>
+      <dialog class="projModal" id="close">
+        <form action="">
+          <div class="entry">
+            <label for="project-name">Project Name</label>
+            <input id="project" maxlength="9" type="text" />
+          </div>
+          <div class="close-n-cancel">
+            <button id="cancelProj">Close</button>
+            <button type="submit" id="submitProj">Submit</button>
+          </div>
+        </form>
+      </dialog>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
