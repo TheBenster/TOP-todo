@@ -60,7 +60,11 @@ dialog.projModal[open] {
   align-items: center;
   justify-content: center;
   grid-template-rows: 1fr 1fr;
-  gap: 15px;
+  gap: 25px;
+  border-radius: 15px;
+  height: 100px;
+  border: none;
+  box-shadow: 0px 5px 4px;
 }
 input {
   height: 25px;
@@ -117,7 +121,7 @@ input {
   align-items: start;
   justify-content: end;
   flex-direction: column;
-  margin-left: 15vw;
+  margin-left: 10vw;
   gap: 25px;
 }
 
@@ -144,7 +148,8 @@ input {
   height: 100vh;
   background-color: var(--side-clr);
   color: white;
-  padding: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
 .side-section h2 {
@@ -178,13 +183,36 @@ input {
 #selected {
   background-color: hsl(222, 31%, 30%);
   color: white;
+  height: 50px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 #task-projects > li {
   display: flex;
-
+  justify-content: center;
+  align-items: center;
   gap: 20px;
 }
-
+.fas.fa-trash-alt {
+  height: 15px;
+  width: 15px;
+}
 .fas.fa-trash-alt:hover {
   cursor: pointer;
+}
+.close-n-cancel {
+  padding-top: 25px;
+  display: flex;
+  align-items: space-between;
+  justify-content: space-between;
+}
+
+.close-n-cancel button {
+  width: 60px;
+  height: 20px;
+  border-radius: 12px;
+  border: none;
+  background-color: #1e3a8a;
+  color: white;
+  box-shadow: 0px 6px 5px;
 }
