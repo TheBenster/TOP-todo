@@ -5,18 +5,30 @@ let projects = JSON.parse(localStorage.getItem("projects")) || [];
 let taskList = document.querySelector(".task-div");
 let projectList = document.querySelector("#task-projects");
 const newProj = document.querySelector("#new-proj");
+let selectedProject = null;
 
+// Todo obj
 class Todo {
-  constructor(title, description, dueDate, priority, notes, checklist) {
+  constructor(
+    title,
+    description,
+    dueDate,
+    priority,
+    notes,
+    checklist,
+    project
+  ) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
     this.notes = notes;
     this.checklist = checklist;
+    this.project = project;
   }
 }
 
+// add task to array.
 export function addTaskToList() {
   let titleInput = document.querySelector("#title");
   let descInput = document.querySelector("#description");
@@ -35,7 +47,15 @@ export function addTaskToList() {
     return;
   }
 
-  let newTask = new Todo(title, description, dueDate, priority, notes, []);
+  let newTask = new Todo(
+    title,
+    description,
+    dueDate,
+    priority,
+    notes,
+    [],
+    selectedProject
+  );
 
   tasks.push(newTask);
   displayTasks();
@@ -49,6 +69,7 @@ export function deleteTask(index) {
   saveTasksToLocalStorage();
 }
 
+// add project to array
 export function addProjectToList() {
   let projectNameInput = document.querySelector("#project");
   let projectName = projectNameInput.value;
@@ -57,7 +78,6 @@ export function addProjectToList() {
     projectNameInput.value = "Please enter a project name";
     return;
   }
-
   const newProject = document.createElement("li");
   newProject.textContent = projectName;
   projectList.appendChild(newProject);
@@ -67,27 +87,54 @@ export function addProjectToList() {
   saveProjectsToLocalStorage();
 }
 
+const exampleProject = "Example Project";
+
+// append to ul
 function displayProjects() {
   projectList.innerHTML = "";
 
-  projects.forEach((project) => {
+  projects.forEach((project, index) => {
     const listItem = document.createElement("li");
     listItem.textContent = project;
 
     const trashIcon = document.createElement("i");
     trashIcon.classList.add("fas", "fa-trash-alt");
-    trashIcon.addEventListener("click", () => delProj());
+    trashIcon.addEventListener("click", () => delProj(index));
 
     listItem.appendChild(trashIcon);
     projectList.appendChild(listItem);
+
+    // add event listener to select the project, adding selected id and filters to that particular folder
+    listItem.addEventListener("click", () => {
+      const selectedListItem = projectList.querySelector("#selected");
+      if (selectedListItem) {
+        selectedListItem.removeAttribute("id");
+      }
+      listItem.id = "selected";
+      selectProject(project);
+    });
+
+    // check if the current project is selected
+    if (project === selectedProject) {
+      listItem.id = "selected";
+    }
   });
 }
-export function delProj() {
-  projectList.splice(index, 1);
+
+function selectProject(project) {
+  selectedProject = project;
+  displayProjects();
+  displayTasks();
+}
+
+// click trashicon and delete proect
+function delProj(index) {
+  projects.splice(index, 1);
   displayProjects();
   saveProjectsToLocalStorage();
 }
 
+// when you click cancel
 function clearInputFields() {
   let titleInput = document.querySelector("#title");
   let descInput = document.querySelector("#description");
@@ -102,10 +149,16 @@ function clearInputFields() {
   notesInput.value = "";
 }
 
+// display tasks in body
 function displayTasks() {
   taskList.innerHTML = "";
 
-  tasks.forEach((task, index) => {
+  // once clicked, will filter to that specific folder
+  const filteredTasks = tasks.filter(
+    (task) => task.project === selectedProject
+  );
+
+  filteredTasks.forEach((task, index) => {
     const taskDiv = document.createElement("div");
     taskDiv.classList.add("task");
 
