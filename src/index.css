@@ -62,7 +62,7 @@ dialog.projModal[open] {
   grid-template-rows: 1fr 1fr;
   gap: 25px;
   border-radius: 15px;
-  height: 120px;
+  height: 140px;
   border: none;
   box-shadow: 0px 5px 4px;
 }

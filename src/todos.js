@@ -104,16 +104,15 @@ function displayProjects() {
     listItem.appendChild(trashIcon);
     projectList.appendChild(listItem);
 
-    // add event listener to select the project, adding selected id and filters to that particular folder
+    // add event listener to select the project
     listItem.addEventListener("click", () => {
       const selectedListItem = projectList.querySelector("#selected");
       if (selectedListItem) {
         selectedListItem.removeAttribute("id");
-        selectedListItem.classList.remove("selected-color");
       }
       listItem.id = "selected";
-      listItem.classList.add("selected-color");
       selectProject(project);
+      updateSelectedListItemBackground();
     });
 
     // check if the current project is selected
@@ -121,6 +120,27 @@ function displayProjects() {
       listItem.id = "selected";
     }
   });
+
+  // project color picker
+  const colorDivs = document.querySelectorAll(".proj-col");
+  colorDivs.forEach((div) => {
+    div.addEventListener("click", () => {
+      const selectedColorDiv = document.querySelector(".selected-color");
+      if (selectedColorDiv) {
+        selectedColorDiv.classList.remove("selected-color");
+      }
+      div.classList.add("selected-color");
+      updateSelectedListItemBackground();
+    });
+  });
+}
+
+function updateSelectedListItemBackground() {
+  const selectedListItem = projectList.querySelector("#selected");
+  const selectedColorDiv = document.querySelector(".selected-color");
+  if (selectedListItem && selectedColorDiv) {
+    selectedListItem.style.backgroundColor = selectedColorDiv.dataset.color;
+  }
 }
 
 function selectProject(project) {
