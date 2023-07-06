@@ -62,7 +62,7 @@ dialog.projModal[open] {
   grid-template-rows: 1fr 1fr;
   gap: 25px;
   border-radius: 15px;
-  height: 100px;
+  height: 120px;
   border: none;
   box-shadow: 0px 5px 4px;
 }
@@ -215,7 +215,7 @@ input {
   border: none;
   background-color: #1e3a8a;
   color: white;
-  box-shadow: 0px 6px 5px;
+  box-shadow: 0px 2px 5px black;
 }
 
 #task-projects li:hover {
@@ -236,4 +236,40 @@ input {
   cursor: pointer;
   transition-duration: 0.4s;
   background-color: white;
+}
+
+.proj-col {
+  border-radius: 50px;
+  width: 20px;
+  height: 20px;
+}
+#red-proj {
+  background-color: #ef4444;
+}
+
+#purple-proj {
+  background-color: #6366f1;
+}
+#blue-proj {
+  background-color: #2563eb;
+}
+#pink-proj {
+  background-color: #d946ef;
+}
+#palepnk-proj {
+  background-color: #f43f5e;
+}
+#green-proj {
+  background-color: #22c55e;
+}
+#yellow-proj {
+  background-color: #fbbf24;
+}
+.entry-color {
+  padding-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+.selected-color {
+  border: solid 2px rgb(0, 191, 255);
 }

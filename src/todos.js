@@ -109,8 +109,10 @@ function displayProjects() {
       const selectedListItem = projectList.querySelector("#selected");
       if (selectedListItem) {
         selectedListItem.removeAttribute("id");
+        selectedListItem.classList.remove("selected-color");
       }
       listItem.id = "selected";
+      listItem.classList.add("selected-color");
       selectProject(project);
     });
 
