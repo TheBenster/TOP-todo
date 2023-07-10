@@ -70,6 +70,7 @@ export function deleteTask(index) {
 }
 
 // add project to array
+// add project to array
 export function addProjectToList() {
   let projectNameInput = document.querySelector("#project");
   let projectName = projectNameInput.value;
@@ -78,8 +79,17 @@ export function addProjectToList() {
     projectNameInput.value = "Please enter a project name";
     return;
   }
+
   const newProject = document.createElement("li");
   newProject.textContent = projectName;
+
+  const projColorDiv = document.createElement("div");
+  projColorDiv.classList.add("proj-col");
+
+  // const selectedColorDiv = document.querySelector(".selected-color");
+  // projColorDiv.style.backgroundColor = selectedColorDiv.dataset.color;
+
+  newProject.prepend(projColorDiv);
   projectList.appendChild(newProject);
   newProj.className = "taskProj";
   projects.push(projectName);
@@ -122,26 +132,26 @@ function displayProjects() {
   });
 
   // project color picker
-  const colorDivs = document.querySelectorAll(".proj-col");
-  colorDivs.forEach((div) => {
-    div.addEventListener("click", () => {
-      const selectedColorDiv = document.querySelector(".selected-color");
-      if (selectedColorDiv) {
-        selectedColorDiv.classList.remove("selected-color");
-      }
-      div.classList.add("selected-color");
-      updateSelectedListItemBackground();
-    });
-  });
+  // const colorDivs = document.querySelectorAll(".proj-col");
+  // colorDivs.forEach((div) => {
+  //   div.addEventListener("click", () => {
+  //     const selectedColorDiv = document.querySelector(".selected-color");
+  //     if (selectedColorDiv) {
+  //       selectedColorDiv.classList.remove("selected-color");
+  //     }
+  //     div.classList.add("selected-color");
+  //     updateSelectedListItemBackground();
+  //   });
+  // });
 }
 
-function updateSelectedListItemBackground() {
-  const selectedListItem = projectList.querySelector("#selected");
-  const selectedColorDiv = document.querySelector(".selected-color");
-  if (selectedListItem && selectedColorDiv) {
-    selectedListItem.style.backgroundColor = selectedColorDiv.dataset.color;
-  }
-}
+// function updateSelectedListItemBackground() {
+//   const selectedListItem = projectList.querySelector("#selected");
+//   const selectedColorDiv = document.querySelector(".selected-color");
+//   if (selectedListItem && selectedColorDiv) {
+//     selectedListItem.style.backgroundColor = selectedColorDiv.dataset.color;
+//   }
+// }
 
 function selectProject(project) {
   selectedProject = project;
