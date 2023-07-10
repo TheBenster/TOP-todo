@@ -11,6 +11,7 @@ body {
   font-family: "Inter";
   color: black;
   background-color: white;
+  overflow-x: hidden;
 }
 .task-container {
   display: flex;
@@ -54,6 +55,8 @@ dialog[open] {
   justify-content: center;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   gap: 20px;
+  height: 315px;
+  margin-top: 80px;
 }
 dialog.projModal[open] {
   display: grid;
@@ -89,7 +92,7 @@ input {
   margin-top: 10px;
   height: 25px;
   color: white;
-  background-color: var(#212121);
+  background-color: #212121;
   border: none;
   border-radius: 35px;
 }
@@ -272,4 +275,22 @@ input {
 }
 .selected-color {
   border: solid 2px rgb(0, 191, 255);
+}
+
+@media (max-width: 1024px) {
+  .task {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    padding-left: 150px;
+  }
+}
+@media (max-width: 750px) {
+  .task-container {
+    margin-left: 10%;
+  }
 }
